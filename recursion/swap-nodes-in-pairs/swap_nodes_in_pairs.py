@@ -4,9 +4,9 @@ class ListNode:
         self.next = next
 
 def swap_pairs(head):
-    if head:
-        if head.next:
-            head.val, head.next.val = head.next.val, head.val
-            if head.next.next:
-                swap_pairs(head.next.next)
-    return head
+    if not head or not head.next:
+        return head
+    else:
+        head.val, head.next.val = head.next.val, head.val
+        if head.next.next:
+            swap_pairs(head.next.next)
