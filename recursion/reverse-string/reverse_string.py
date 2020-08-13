@@ -1,10 +1,10 @@
 from math import ceil
 
 def reverse_string(s):
-    count = 0
-    for i in range((len(s) - 1), (ceil(len(s) / 2) - 1), (-1)):
-        initial = s[count]
-        final = s[i]
-        s[count] = final
-        s[i] = initial
-        count += 1
+    def recursive_reverse(s, i, o):
+        if i < o:
+            s[i], s[o] = s[o], s[i]
+            recursive_reverse(s, i + 1, o - 1)
+        else:
+            return
+    recursive_reverse(s, 0, len(s) - 1)
